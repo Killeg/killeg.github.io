@@ -1,133 +1,131 @@
-.banner{
+/* styling of the banner */
+.banner {
     background-image: url("../images/DSC_0380_2.jpg");
     background-size: cover;
     background-position: center center;
     text-align: center;
-    padding:3rem 0 10rem;
+    padding: 3rem 0 10rem;
     max-width: 1920px;
     height: 650px;
-    margin-left:auto;
+    margin-left: auto;
     margin-right: auto;
 }
 
-.navBanner{
+/* Styling of the Navigation banner */
+
+.navBanner {
     text-align: center;
-    padding:3rem 0 0 0;
-    /* max-width: 1920px;
-    height: 650px; */
-    margin-left:auto;
+    padding: 3rem 0 0 0;
+    margin-left: auto;
     margin-right: auto;
 }
 
-.title{
-    font-family: Constantia;
-}
-
-
-.row{
+.row {
     max-height: inherit;
 }
 
-ul{
+/* Property to line up new lines in lists */
+ul {
     list-style-position: outside;
-    padding-left:15px;
+    padding-left: 15px;
 }
 
-/* .gallery{
-    background-image: url("../images/DSC_0380_2.jpg");
-    background-size: cover;
-    background-position: center center;
-    text-align: center;
-    padding:10rem 0 10rem;
-    max-width: 1920px;
-    height: 650px;
-    margin-left:auto;
-    margin-right: auto;
-} */
-
-/* li{
-    list-style-position: inside;
-    text-indent: -1em;
-    padding-left: 1em;
-} */
-
-.arrow{
+/* Styling of the mobile scroll indicator */
+.arrow {
     max-width: 65px;
     margin-top: 10px;
-    display:block; 
+    display: block;
     margin: auto;
 }
 
-.mobile{
-    padding:2rem;
+/* Padding of the content */
+.mobile {
+    padding: 2rem;
 }
-.photography{
+
+.photography {
     padding: 0 0 2rem !important;
 }
-.cars{
+
+.cars {
     padding: 0 0 2rem !important;
 }
-.aboutMe{
+
+.aboutMe {
     padding: 3rem 0 2rem !important;
 }
 
-hr{
+/* Styling of the the hr */
+hr {
     margin-top: 1rem;
     margin-bottom: 1rem;
 }
 
-.navIcon i{ 
-    float:right;
-    color:#A9A9A9;
+/* Styling of the navigation Icon */
+.navIcon i {
+    float: right;
+    color: #A9A9A9;
     cursor: pointer;
 }
 
-.navOpened{
-    background-color:#000;
+/* Styling when Navigation is open */
+.navOpened {
+    background-color: #000;
     z-index: 10;
-    position: fixed; /* Sit on top of the page content */
-    width: 100%; /* Full width (cover the whole page) */
-    height: 100%; /* Full height (cover the whole page) */
-    top: 0; 
+    position: fixed;
+    /* Sit on top of the page content */
+    width: 100%;
+    /* Full width (cover the whole page) */
+    height: 100%;
+    /* Full height (cover the whole page) */
+    top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    display:block;
+    display: block;
     opacity: 0.9;
 }
 
-.navClosed{
+/* Styling when Navigation is closed */
+.navClosed {
     z-index: 10;
-    position: fixed; /* Sit on top of the page content */
-    width: 100%; /* Full width (cover the whole page) */
-    height: 50px; /* Full height (cover the whole page) */
-    top: 0; 
+    position: fixed;
+    /* Sit on top of the page content */
+    width: 100%;
+    /* Full width (cover the whole page) */
+    height: 0;
+    /* Set height to 0 so the closed nav doesn't overlay the page */
+    top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    display:block;
+    display: block;
 }
 
-.navText{
+/* Styling of the navigation text */
+.navText {
     font-size: 75px;
     color: white;
 }
 
-.navText a{
+/* Styling of the navigation links */
+.navText a {
     color: white;
     text-decoration: none;
     opacity: 0.8;
     transition: 0.3s;
 }
 
-.navText a:hover{
+/* Styling of the navigation link's hover */
+.navText a:hover {
     color: #92822D;
     text-decoration: none;
     opacity: 1;
 }
 
-@media (min-width:2200px){
-    .navIcon i{
+/* Slight adjustment of the Nav Icon on screens with big resolutions */
+@media (min-width:2200px) {
+    .navIcon i {
         margin-right: 2em;
     }
 }
