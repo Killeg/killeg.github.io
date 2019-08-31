@@ -1,0 +1,133 @@
+.banner{
+    background-image: url("../images/DSC_0380_2.jpg");
+    background-size: cover;
+    background-position: center center;
+    text-align: center;
+    padding:3rem 0 10rem;
+    max-width: 1920px;
+    height: 650px;
+    margin-left:auto;
+    margin-right: auto;
+}
+
+.navBanner{
+    text-align: center;
+    padding:3rem 0 0 0;
+    /* max-width: 1920px;
+    height: 650px; */
+    margin-left:auto;
+    margin-right: auto;
+}
+
+.title{
+    font-family: Constantia;
+}
+
+
+.row{
+    max-height: inherit;
+}
+
+ul{
+    list-style-position: outside;
+    padding-left:15px;
+}
+
+/* .gallery{
+    background-image: url("../images/DSC_0380_2.jpg");
+    background-size: cover;
+    background-position: center center;
+    text-align: center;
+    padding:10rem 0 10rem;
+    max-width: 1920px;
+    height: 650px;
+    margin-left:auto;
+    margin-right: auto;
+} */
+
+/* li{
+    list-style-position: inside;
+    text-indent: -1em;
+    padding-left: 1em;
+} */
+
+.arrow{
+    max-width: 65px;
+    margin-top: 10px;
+    display:block; 
+    margin: auto;
+}
+
+.mobile{
+    padding:2rem;
+}
+.photography{
+    padding: 0 0 2rem !important;
+}
+.cars{
+    padding: 0 0 2rem !important;
+}
+.aboutMe{
+    padding: 3rem 0 2rem !important;
+}
+
+hr{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.navIcon i{ 
+    float:right;
+    color:#A9A9A9;
+    cursor: pointer;
+}
+
+.navOpened{
+    background-color:#000;
+    z-index: 10;
+    position: fixed; /* Sit on top of the page content */
+    width: 100%; /* Full width (cover the whole page) */
+    height: 100%; /* Full height (cover the whole page) */
+    top: 0; 
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display:block;
+    opacity: 0.9;
+}
+
+.navClosed{
+    z-index: 10;
+    position: fixed; /* Sit on top of the page content */
+    width: 100%; /* Full width (cover the whole page) */
+    height: 50px; /* Full height (cover the whole page) */
+    top: 0; 
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display:block;
+}
+
+.navText{
+    font-size: 75px;
+    color: white;
+}
+
+.navText a{
+    color: white;
+    text-decoration: none;
+    opacity: 0.8;
+    transition: 0.3s;
+}
+
+.navText a:hover{
+    color: #92822D;
+    text-decoration: none;
+    opacity: 1;
+}
+
+@media (min-width:2200px){
+    .navIcon i{
+        margin-right: 2em;
+    }
+}
