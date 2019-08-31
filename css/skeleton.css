@@ -67,10 +67,24 @@
   .navText a {
     font-size: 50px;
   }
+
+  .navText {
+    margin-bottom: 0;
+    line-height: 1;
+  }
+  .aboutMe {
+  padding: 0 0 2rem !important;
+  }
 }
 
 /* For devices larger than 860px */
 @media (min-width: 860px) {
+
+  .navText {
+    margin-bottom: auto;
+    line-height: 1.6;
+  }
+
   .container {
     width: 80%;
   }
@@ -244,7 +258,7 @@
   }
 
   .aboutMe {
-    padding: 0 0 2rem !important;
+    padding: 2rem 0 2rem !important;
   }
 
   .navText a {
