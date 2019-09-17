@@ -19,7 +19,8 @@ function toggleNav() {
         navIcon.classList.remove("fa-bars")
         navIcon.classList.add("fa-times")
         navText.innerHTML += '<p onclick="closeNav();"class="navText"><a href="#AboutMe">About me</a></p><p onclick="closeNav();" class="navText"><a href="#Photography">Photography</a></p><p onclick="closeNav();" class="navText"><a href="#Cars">Cars</a></p><label class="switch"><input type="checkbox" id="btnDarkmode" onclick="darkMode()"><span class="slider round"></span></label><p class="darkmodeText">Enable Darkmode</p>';
-        
+        document.body.style.overflowY = "hidden";
+
         if(document.body.style.background == "rgb(34, 34, 34)"){
             document.getElementById("btnDarkmode").checked = "true";
         }
