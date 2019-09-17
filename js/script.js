@@ -5,6 +5,7 @@ function closeNav() {
     navText.innerHTML = '';
     navIcon.classList.remove("fa-times")
     navIcon.classList.add("fa-bars")
+    document.body.style.overflowY = "auto";
 }
 
 function toggleNav() {
