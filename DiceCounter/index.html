@@ -82,10 +82,6 @@
                     resultArrayCont.push(parseInt(result));
                     if(selectedSpecialDice){
                         specResultArrayCont.push(selectedSpecialDice.dataset.option)
-                        document.getElementById("turnsSinceLastYellow").innerText = specResultArrayCont.length - specResultArrayCont.lastIndexOf('yellow') - 1
-                        document.getElementById("turnsSinceLastBlue").innerText = specResultArrayCont.length - specResultArrayCont.lastIndexOf('blue') - 1
-                        document.getElementById("turnsSinceLastGreen").innerText = specResultArrayCont.length - specResultArrayCont.lastIndexOf('green') - 1
-                        document.getElementById("turnsSinceLastBarbarian").innerText = specResultArrayCont.length - specResultArrayCont.lastIndexOf('barbarian') - 1
                         switch(selectedSpecialDice.dataset.option){
                             case 'yellow':
                                 specResultArray[0][1]++
@@ -104,21 +100,55 @@
                                 document.getElementById("barbarianRes").innerText = specResultArray[3][1]
                                 break;
                         }
+                        if(document.getElementById("yellowRes").innerText!=0){
+                            document.getElementById("turnsSinceLastYellow").innerText = specResultArrayCont.length - specResultArrayCont.lastIndexOf('yellow') - 1
+                        }
+                        if(document.getElementById("blueRes").innerText!=0){
+                            document.getElementById("turnsSinceLastBlue").innerText = specResultArrayCont.length - specResultArrayCont.lastIndexOf('blue') - 1
+                        }
+                        if(document.getElementById("greenRes").innerText!=0){
+                            document.getElementById("turnsSinceLastGreen").innerText = specResultArrayCont.length - specResultArrayCont.lastIndexOf('green') - 1
+                        }
+                        if(document.getElementById("barbarianRes").innerText!=0){
+                            document.getElementById("turnsSinceLastBarbarian").innerText = specResultArrayCont.length - specResultArrayCont.lastIndexOf('barbarian') - 1
+                        }
                     }
                     function lastTurn(){
-                        document.getElementById("turnsSinceLastTwo").innerText = resultArrayCont.length - resultArrayCont.lastIndexOf(2) - 1
-                        document.getElementById("turnsSinceLastThree").innerText = resultArrayCont.length - resultArrayCont.lastIndexOf(3) - 1
-                        document.getElementById("turnsSinceLastFour").innerText = resultArrayCont.length - resultArrayCont.lastIndexOf(4) - 1
-                        document.getElementById("turnsSinceLastFive").innerText = resultArrayCont.length - resultArrayCont.lastIndexOf(5) - 1
-                        document.getElementById("turnsSinceLastSix").innerText = resultArrayCont.length - resultArrayCont.lastIndexOf(6) - 1
-                        document.getElementById("turnsSinceLastSeven").innerText = resultArrayCont.length - resultArrayCont.lastIndexOf(7) - 1
-                        document.getElementById("turnsSinceLastEight").innerText = resultArrayCont.length - resultArrayCont.lastIndexOf(8) - 1
-                        document.getElementById("turnsSinceLastNine").innerText = resultArrayCont.length - resultArrayCont.lastIndexOf(9) - 1
-                        document.getElementById("turnsSinceLastTen").innerText = resultArrayCont.length - resultArrayCont.lastIndexOf(10) - 1
-                        document.getElementById("turnsSinceLastEleven").innerText = resultArrayCont.length - resultArrayCont.lastIndexOf(11) - 1
-                        document.getElementById("turnsSinceLastTwelve").innerText = resultArrayCont.length - resultArrayCont.lastIndexOf(12) - 1
+                        if(document.getElementById("twoRes").innerText!=0){
+                            document.getElementById("turnsSinceLastTwo").innerText = resultArrayCont.length - resultArrayCont.lastIndexOf(2) - 1
+                        }
+                        if(document.getElementById("threeRes").innerText!=0){
+                            document.getElementById("turnsSinceLastThree").innerText = resultArrayCont.length - resultArrayCont.lastIndexOf(3) - 1
+                        }
+                        if(document.getElementById("fourRes").innerText!=0){
+                            document.getElementById("turnsSinceLastFour").innerText = resultArrayCont.length - resultArrayCont.lastIndexOf(4) - 1
+                        }
+                        if(document.getElementById("fiveRes").innerText!=0){
+                            document.getElementById("turnsSinceLastFive").innerText = resultArrayCont.length - resultArrayCont.lastIndexOf(5) - 1
+                        }
+                        if(document.getElementById("sixRes").innerText!=0){
+                            document.getElementById("turnsSinceLastSix").innerText = resultArrayCont.length - resultArrayCont.lastIndexOf(6) - 1
+                        }
+                        if(document.getElementById("sevenRes").innerText!=0){
+                            document.getElementById("turnsSinceLastSeven").innerText = resultArrayCont.length - resultArrayCont.lastIndexOf(7) - 1
+                        }
+                        if(document.getElementById("eightRes").innerText!=0){
+                            document.getElementById("turnsSinceLastEight").innerText = resultArrayCont.length - resultArrayCont.lastIndexOf(8) - 1
+                        }
+                        if(document.getElementById("nineRes").innerText!=0){
+                            document.getElementById("turnsSinceLastNine").innerText = resultArrayCont.length - resultArrayCont.lastIndexOf(9) - 1
+                        }
+                        if(document.getElementById("tenRes").innerText!=0){
+                            document.getElementById("turnsSinceLastTen").innerText = resultArrayCont.length - resultArrayCont.lastIndexOf(10) - 1
+                        }
+                        if(document.getElementById("elevenRes").innerText!=0){
+                            document.getElementById("turnsSinceLastEleven").innerText = resultArrayCont.length - resultArrayCont.lastIndexOf(11) - 1
+                        }
+                        if(document.getElementById("twelveRes").innerText!=0){
+                            document.getElementById("turnsSinceLastTwelve").innerText = resultArrayCont.length - resultArrayCont.lastIndexOf(12) - 1
+                        }                       
                     }
-                    lastTurn()
+
                     switch(result){
                         case 2: 
                             resultArray[0][1]++
@@ -165,6 +195,7 @@
                             document.getElementById("twelveRes").innerText = resultArray[10][1]
                             break;                                     
                     }
+                    lastTurn()
                 });
             }, false);
 
@@ -211,57 +242,57 @@
                 <tr>
                     <td>2</td>
                     <td id="twoRes">0</td>
-                    <td id="turnsSinceLastTwo">0</td>
+                    <td id="turnsSinceLastTwo">-</td>
                 </tr>
                 <tr>
                     <td>3</td>
                     <td id="threeRes">0</td>
-                    <td id="turnsSinceLastThree">0</td>
+                    <td id="turnsSinceLastThree">-</td>
                 </tr>
                 <tr>
                     <td>4</td>
                     <td id="fourRes">0</td>
-                    <td id="turnsSinceLastFour">0</td>
+                    <td id="turnsSinceLastFour">-</td>
                 </tr>
                 <tr>
                     <td>5</td>
                     <td id="fiveRes">0</td>
-                    <td id="turnsSinceLastFive">0</td>
+                    <td id="turnsSinceLastFive">-</td>
                 </tr>
                 <tr>
                     <td>6</td>
                     <td id="sixRes">0</td>
-                    <td id="turnsSinceLastSix">0</td>
+                    <td id="turnsSinceLastSix">-</td>
                 </tr>
                 <tr>
                     <td>7</td>
                     <td id="sevenRes">0</td>
-                    <td id="turnsSinceLastSeven">0</td>
+                    <td id="turnsSinceLastSeven">-</td>
                 </tr>
                 <tr>
                     <td>8</td>
                     <td id="eightRes">0</td>
-                    <td id="turnsSinceLastEight">0</td>
+                    <td id="turnsSinceLastEight">-</td>
                 </tr>
                 <tr>
                     <td>9</td>
                     <td id="nineRes">0</td>
-                    <td id="turnsSinceLastNine">0</td>
+                    <td id="turnsSinceLastNine">-</td>
                 </tr>
                 <tr>
                     <td>10</td>
                     <td id="tenRes">0</td>
-                    <td id="turnsSinceLastTen">0</td>
+                    <td id="turnsSinceLastTen">-</td>
                 </tr>
                 <tr>
                     <td>11</td>
                     <td id="elevenRes">0</td>
-                    <td id="turnsSinceLastEleven">0</td>
+                    <td id="turnsSinceLastEleven">-</td>
                 </tr>
                 <tr>
                     <td>12</td>
                     <td id="twelveRes">0</td>
-                    <td id="turnsSinceLastTwelve">0</td>
+                    <td id="turnsSinceLastTwelve">-</td>
                 </tr>
             </table>
             <p style="font-size: 60px;">Cities & Knights:</p>
@@ -274,22 +305,22 @@
                 <tr>
                     <td>Yellow</td>
                     <td id="yellowRes">0</td>
-                    <td id="turnsSinceLastYellow">0</td>
+                    <td id="turnsSinceLastYellow">-</td>
                 </tr>
                 <tr>
                     <td>Blue</td>
                     <td id="blueRes">0</td>
-                    <td id="turnsSinceLastBlue">0</td>
+                    <td id="turnsSinceLastBlue">-</td>
                 </tr>
                 <tr>
                     <td>Green</td>
                     <td id="greenRes">0</td>
-                    <td id="turnsSinceLastGreen">0</td>
+                    <td id="turnsSinceLastGreen">-</td>
                 </tr>
                 <tr>
                     <td>Barbarian</td>
                     <td id="barbarianRes">0</td>
-                    <td id="turnsSinceLastBarbarian">0</td>
+                    <td id="turnsSinceLastBarbarian">-</td>
                 </tr>
             </table>
         </div>
