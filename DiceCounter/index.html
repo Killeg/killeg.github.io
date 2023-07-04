@@ -20,8 +20,15 @@
                 [9,0],
                 [10,0],
                 [11,0],
-                [12,0],
-            ]
+                [12,0]
+            ];
+            var specResultArrayCont = [];
+            var specResultArray = [
+                ['Yellow',0],
+                ['Blue',0],
+                ['Green',0],
+                ['Barbarian',0]
+            ];
 
             var myFunction = function() {
                 if(this.classList.contains('white')){
@@ -41,11 +48,20 @@
                 }
 
                 if(this.classList.contains('special')){
-                    if(selectedSpecialDice){
+                    console.log(this)
+                    console.log(selectedSpecialDice)
+                    if(selectedSpecialDice && selectedSpecialDice!=this){
                         selectedSpecialDice.classList.toggle("active");
+                        this.classList.toggle("active");
+                    } else if (this == selectedSpecialDice){
+                        this.classList.toggle("active");
+                    } else {
+                        this.classList.toggle("active");
                     }
-                    this.classList.toggle("active");
                     selectedSpecialDice=this
+                    if(!this.classList.contains("active")){
+                        selectedSpecialDice=""
+                    }
                 }
             };
             document.addEventListener('DOMContentLoaded', function () {
@@ -56,15 +72,39 @@
                 }
 
                 var submitButtonElement = document.getElementById("submitButton")
-                console.log(submitButtonElement)
                 submitButtonElement.addEventListener('click',function(){
                     // This is the submission event
-                    if(!selectedRedDice || !selectedSpecialDice || !selectedWhiteDice){
-                        alert('not all dice selected')
+                    if(!selectedRedDice || !selectedWhiteDice){
+                        alert('number dices always have to be selected')
                         return false;
                     }
                     let result = parseInt(selectedRedDice.dataset.number)+parseInt(selectedWhiteDice.dataset.number);
                     resultArrayCont.push(parseInt(result));
+                    if(selectedSpecialDice){
+                        specResultArrayCont.push(selectedSpecialDice.dataset.option)
+                        document.getElementById("turnsSinceLastYellow").innerText = specResultArrayCont.length - specResultArrayCont.lastIndexOf('yellow') - 1
+                        document.getElementById("turnsSinceLastBlue").innerText = specResultArrayCont.length - specResultArrayCont.lastIndexOf('blue') - 1
+                        document.getElementById("turnsSinceLastGreen").innerText = specResultArrayCont.length - specResultArrayCont.lastIndexOf('green') - 1
+                        document.getElementById("turnsSinceLastBarbarian").innerText = specResultArrayCont.length - specResultArrayCont.lastIndexOf('barbarian') - 1
+                        switch(selectedSpecialDice.dataset.option){
+                            case 'yellow':
+                                specResultArray[0][1]++
+                                document.getElementById("yellowRes").innerText = specResultArray[0][1]
+                                break;
+                            case 'blue':
+                                specResultArray[1][1]++
+                                document.getElementById("blueRes").innerText = specResultArray[1][1]
+                                break;
+                            case 'green':
+                                specResultArray[2][1]++
+                                document.getElementById("greenRes").innerText = specResultArray[2][1]
+                                break;
+                            case 'barbarian':
+                                specResultArray[3][1]++
+                                document.getElementById("barbarianRes").innerText = specResultArray[3][1]
+                                break;
+                        }
+                    }
                     function lastTurn(){
                         document.getElementById("turnsSinceLastTwo").innerText = resultArrayCont.length - resultArrayCont.lastIndexOf(2) - 1
                         document.getElementById("turnsSinceLastThree").innerText = resultArrayCont.length - resultArrayCont.lastIndexOf(3) - 1
@@ -150,17 +190,19 @@
                 <div data-number="6" class="red dice diceSix"></div>
             </div>
             <div class="specialDice">
+                <div data-option="yellow" class="special dice diceThree" style="background-image: url('yellowCastle.png'); background-size: contain"></div>
                 <div data-option="blue" class="special dice diceOne" style="background-image: url('blueCastle.png'); background-size: contain"></div>
                 <div data-option="green" class="special dice diceTwo" style="background-image: url('greenCastle.png'); background-size: contain"></div>
-                <div data-option="yellow" class="special dice diceThree" style="background-image: url('yellowCastle.png'); background-size: contain"></div>
                 <div data-option="barbarian" class="special dice diceFour"style="background-image: url('barbarian.png'); background-size: contain"></div>
             </div>
         </div>
-        <div id="submitButton">Submit</div>
+        <div style="display:flex; justify-content: center; height:3%; padding-bottom:25px;">
+            <div id="submitButton">Submit</div>
+        </div>
         <hr>
-        <div style="color:white;">
-            Results:
-            <table style="color:white;">
+        <div style="color:white; display: flex; justify-content: center;flex-direction: column; align-items: center;">
+            <p style="font-size: 60px;">Numbers:</p>
+            <table id="resultTable" style="color:white; font-size: 30px;">
                 <thead>
                     <th style="padding-right: 20px;">Number rolled</th>
                     <th style="padding-right: 20px;">Amount</th>
@@ -220,6 +262,34 @@
                     <td>12</td>
                     <td id="twelveRes">0</td>
                     <td id="turnsSinceLastTwelve">0</td>
+                </tr>
+            </table>
+            <p style="font-size: 60px;">Cities & Knights:</p>
+            <table id="resultTable" style="color:white; font-size: 30px;">
+                <thead>
+                    <th>Special rolled</th>
+                    <th>Amount</th>
+                    <th>Turns since last rolled</th>
+                </thead>
+                <tr>
+                    <td>Yellow</td>
+                    <td id="yellowRes">0</td>
+                    <td id="turnsSinceLastYellow">0</td>
+                </tr>
+                <tr>
+                    <td>Blue</td>
+                    <td id="blueRes">0</td>
+                    <td id="turnsSinceLastBlue">0</td>
+                </tr>
+                <tr>
+                    <td>Green</td>
+                    <td id="greenRes">0</td>
+                    <td id="turnsSinceLastGreen">0</td>
+                </tr>
+                <tr>
+                    <td>Barbarian</td>
+                    <td id="barbarianRes">0</td>
+                    <td id="turnsSinceLastBarbarian">0</td>
                 </tr>
             </table>
         </div>
