@@ -1,0 +1,227 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+        <title>
+            Dice Counter
+        </title>
+        <script>
+            var selectedWhiteDice
+            var selectedRedDice
+            var selectedSpecialDice
+            var resultArrayCont = [];
+            var resultArray = [
+                [2,0],
+                [3,0],
+                [4,0],
+                [5,0],
+                [6,0],
+                [7,0],
+                [8,0],
+                [9,0],
+                [10,0],
+                [11,0],
+                [12,0],
+            ]
+
+            var myFunction = function() {
+                if(this.classList.contains('white')){
+                    if(selectedWhiteDice){
+                        selectedWhiteDice.classList.toggle("active");
+                    }
+                    this.classList.toggle("active");
+                    selectedWhiteDice=this
+                }
+
+                if(this.classList.contains('red')){
+                    if(selectedRedDice){
+                        selectedRedDice.classList.toggle("active");
+                    }
+                    this.classList.toggle("active");
+                    selectedRedDice=this
+                }
+
+                if(this.classList.contains('special')){
+                    if(selectedSpecialDice){
+                        selectedSpecialDice.classList.toggle("active");
+                    }
+                    this.classList.toggle("active");
+                    selectedSpecialDice=this
+                }
+            };
+            document.addEventListener('DOMContentLoaded', function () {
+                var elements = document.getElementsByClassName("dice");
+
+                for (var i = 0; i < elements.length; i++) {
+                    elements[i].addEventListener('click', myFunction, false);
+                }
+
+                var submitButtonElement = document.getElementById("submitButton")
+                console.log(submitButtonElement)
+                submitButtonElement.addEventListener('click',function(){
+                    // This is the submission event
+                    if(!selectedRedDice || !selectedSpecialDice || !selectedWhiteDice){
+                        alert('not all dice selected')
+                        return false;
+                    }
+                    let result = parseInt(selectedRedDice.dataset.number)+parseInt(selectedWhiteDice.dataset.number);
+                    resultArrayCont.push(parseInt(result));
+                    function lastTurn(){
+                        document.getElementById("turnsSinceLastTwo").innerText = resultArrayCont.length - resultArrayCont.lastIndexOf(2) - 1
+                        document.getElementById("turnsSinceLastThree").innerText = resultArrayCont.length - resultArrayCont.lastIndexOf(3) - 1
+                        document.getElementById("turnsSinceLastFour").innerText = resultArrayCont.length - resultArrayCont.lastIndexOf(4) - 1
+                        document.getElementById("turnsSinceLastFive").innerText = resultArrayCont.length - resultArrayCont.lastIndexOf(5) - 1
+                        document.getElementById("turnsSinceLastSix").innerText = resultArrayCont.length - resultArrayCont.lastIndexOf(6) - 1
+                        document.getElementById("turnsSinceLastSeven").innerText = resultArrayCont.length - resultArrayCont.lastIndexOf(7) - 1
+                        document.getElementById("turnsSinceLastEight").innerText = resultArrayCont.length - resultArrayCont.lastIndexOf(8) - 1
+                        document.getElementById("turnsSinceLastNine").innerText = resultArrayCont.length - resultArrayCont.lastIndexOf(9) - 1
+                        document.getElementById("turnsSinceLastTen").innerText = resultArrayCont.length - resultArrayCont.lastIndexOf(10) - 1
+                        document.getElementById("turnsSinceLastEleven").innerText = resultArrayCont.length - resultArrayCont.lastIndexOf(11) - 1
+                        document.getElementById("turnsSinceLastTwelve").innerText = resultArrayCont.length - resultArrayCont.lastIndexOf(12) - 1
+                    }
+                    lastTurn()
+                    switch(result){
+                        case 2: 
+                            resultArray[0][1]++
+                            document.getElementById("twoRes").innerText = resultArray[0][1]
+                            break;
+                        case 3: 
+                            resultArray[1][1]++
+                            document.getElementById("threeRes").innerText = resultArray[1][1]
+                            break;
+                        case 4: 
+                            resultArray[2][1]++
+                            document.getElementById("fourRes").innerText = resultArray[2][1]
+                            break;
+                        case 5: 
+                            resultArray[3][1]++                        
+                            document.getElementById("fiveRes").innerText = resultArray[3][1]
+                            break;     
+                        case 6: 
+                            resultArray[4][1]++
+                            document.getElementById("sixRes").innerText = resultArray[4][1]
+                            break;
+                        case 7: 
+                            resultArray[5][1]++
+                            document.getElementById("sevenRes").innerText = resultArray[5][1]
+                            break;
+                        case 8: 
+                            resultArray[6][1]++
+                            document.getElementById("eightRes").innerText = resultArray[6][1]
+                            break;
+                        case 9: 
+                            resultArray[7][1]++
+                            document.getElementById("nineRes").innerText = resultArray[7][1]
+                            break;   
+                        case 10: 
+                            resultArray[8][1]++
+                            document.getElementById("tenRes").innerText = resultArray[8][1]
+                            break;
+                        case 11: 
+                            resultArray[9][1]++
+                            document.getElementById("elevenRes").innerText = resultArray[9][1]
+                            break;
+                        case 12: 
+                            resultArray[10][1]++
+                            document.getElementById("twelveRes").innerText = resultArray[10][1]
+                            break;                                     
+                    }
+                });
+            }, false);
+
+
+        </script>
+    </head>
+    <body>
+        <div class="dices">
+            <div class="whiteDice">
+                <div data-number="1" class="white dice diceOne"></div>
+                <div data-number="2" class="white dice diceTwo"></div>
+                <div data-number="3" class="white dice diceThree"></div>
+                <div data-number="4" class="white dice diceFour"></div>
+                <div data-number="5" class="white dice diceFive"></div>
+                <div data-number="6" class="white dice diceSix"></div>
+            </div>
+            <div class="redDice">
+                <div data-number="1" class="red dice diceOne"></div>
+                <div data-number="2" class="red dice diceTwo"></div>
+                <div data-number="3" class="red dice diceThree"></div>
+                <div data-number="4" class="red dice diceFour"></div>
+                <div data-number="5" class="red dice diceFive"></div>
+                <div data-number="6" class="red dice diceSix"></div>
+            </div>
+            <div class="specialDice">
+                <div data-option="blue" class="special dice diceOne" style="background-image: url('blueCastle.png'); background-size: contain"></div>
+                <div data-option="green" class="special dice diceTwo" style="background-image: url('greenCastle.png'); background-size: contain"></div>
+                <div data-option="yellow" class="special dice diceThree" style="background-image: url('yellowCastle.png'); background-size: contain"></div>
+                <div data-option="barbarian" class="special dice diceFour"style="background-image: url('barbarian.png'); background-size: contain"></div>
+            </div>
+        </div>
+        <div id="submitButton">Submit</div>
+        <hr>
+        <div style="color:white;">
+            Results:
+            <table style="color:white;">
+                <thead>
+                    <th style="padding-right: 20px;">Number rolled</th>
+                    <th style="padding-right: 20px;">Amount</th>
+                    <th style="padding-right: 20px;">Turns since last rolled</th>
+                </thead>
+                <tr>
+                    <td>2</td>
+                    <td id="twoRes">0</td>
+                    <td id="turnsSinceLastTwo">0</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td id="threeRes">0</td>
+                    <td id="turnsSinceLastThree">0</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td id="fourRes">0</td>
+                    <td id="turnsSinceLastFour">0</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td id="fiveRes">0</td>
+                    <td id="turnsSinceLastFive">0</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td id="sixRes">0</td>
+                    <td id="turnsSinceLastSix">0</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td id="sevenRes">0</td>
+                    <td id="turnsSinceLastSeven">0</td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td id="eightRes">0</td>
+                    <td id="turnsSinceLastEight">0</td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td id="nineRes">0</td>
+                    <td id="turnsSinceLastNine">0</td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td id="tenRes">0</td>
+                    <td id="turnsSinceLastTen">0</td>
+                </tr>
+                <tr>
+                    <td>11</td>
+                    <td id="elevenRes">0</td>
+                    <td id="turnsSinceLastEleven">0</td>
+                </tr>
+                <tr>
+                    <td>12</td>
+                    <td id="twelveRes">0</td>
+                    <td id="turnsSinceLastTwelve">0</td>
+                </tr>
+            </table>
+        </div>
+    </body>
+</html>

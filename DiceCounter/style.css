@@ -1,0 +1,103 @@
+html{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: black;
+}
+
+#submitButton{
+    background-color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 10%;
+    height: 5%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.active{
+    box-shadow: inset hsla(182, 88%, 35%, 1) 0px 0px 20px 12px;
+}
+
+.dices{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 4%;
+}
+.specialDice{
+    display:flex;
+    flex-direction: column;
+    width:33%;
+    height:50%;
+    align-items: center;
+}
+
+.whiteDice{
+    display:flex;
+    flex-direction: column;
+    width:33%;
+    height:50%;
+    align-items: center;
+}
+
+.special{
+    background-color: #e7e7e7;
+}
+
+.dice{
+    margin-top:2%;
+    display: inherit;
+    height:0;
+    width:40%;
+    padding-bottom:20%;
+    padding-top:20%;
+    border-radius: 16px;
+    justify-content: center;
+    align-items: center;
+}
+
+.white{
+    background-color: #fff8e6;
+}
+
+.redDice{
+    display:flex;
+    flex-direction: column;
+    width:33%;
+    height:50%;
+    align-items: center;
+}
+
+.red{
+    background-color: #ff0000;
+}
+
+.diceOne{
+    background-image: url('one.png'); 
+    background-size: contain;
+}
+
+.diceTwo{
+    background-image: url('two.png'); 
+    background-size: contain;
+}
+
+.diceThree{
+    background-image: url('three.png'); 
+    background-size: contain;
+}
+
+.diceFour{
+    background-image: url('four.png'); 
+    background-size: contain;
+}
+
+.diceFive{
+    background-image: url('five.png'); 
+    background-size: contain;
+}
+
+.diceSix{
+    background-image: url('six.png'); 
+    background-size: contain;
+}
